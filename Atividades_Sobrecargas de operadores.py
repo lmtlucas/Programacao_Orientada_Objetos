@@ -99,19 +99,19 @@ class Produto:
     def __init__(self, nome, preco):
         self.nome = nome
         self.preco = preco
-
         
 class Carrinho:
     def __init__(self):
         self.produtos = []
     def __add__(self, produto):
-        return self.produtos.append(produto)
+        self.produtos.append(produto)
+        return self
+        
     def total(self):
         total = 0
         for produto in self.produtos:
-            total += self.preco
+            total += produto.preco
         return total
-
       
 p1 = Produto("teclado", 350)
 p2 = Produto("monitor", 8000)
@@ -120,3 +120,20 @@ p3 = Produto("mouse", 100)
 c = Carrinho()
 
 c = c + p1
+c = c + p2
+c = c + p3
+
+print(c.total())
+
+'''
+Atividade 5 – Desafio (nível médio)
+
+Crie uma classe ContaBancaria:
+
+saldo
+
+Sobrecarga 
+
++ → depositar
+- → sacar
+'''
