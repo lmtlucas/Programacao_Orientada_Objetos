@@ -137,3 +137,23 @@ Sobrecarga
 + → depositar
 - → sacar
 '''
+
+class ContaBancaria:
+    def __init__(self, saldo):
+        self.saldo = saldo
+    
+    def __add__(self, valor):
+        self.saldo += valor
+        return self
+    def __sub__(self, valor):
+        self.saldo -= valor
+        return self
+        
+    def __str__(self):
+        return f"Seu saldo é {self.saldo}"
+
+c1 = ContaBancaria(100)
+c1 +50
+c1 - 2
+
+print(c1)
