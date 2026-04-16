@@ -1,0 +1,122 @@
+'''
+Atividade 1 – Soma de números personalizados
+
+
+Crie uma classe Numero com:
+
+atributo valor
+sobrecarga do operador +
+
+O resultado deve ser a soma dos valores
+
+'''
+
+class Numero:
+    def __init__(self, valor):
+        self.valor = valor
+
+    def __add__(self, outro):
+        return self.valor + outro.valor
+
+      
+n1 = Numero(3)
+n2 = Numero(4)
+n3 = Numero(20)
+
+print(n1 + n2)
+
+'''
+Atividade 2 – Multiplicação de objetos
+
+Crie uma classe Caixa com:
+
+largura
+altura
+
+Sobrecargue o operador * para calcular a área
+
+'''
+
+class Caixa:
+    def __init__(self, largura, altura):
+        self.largura = largura
+        self.altura = altura
+
+    def __mul__(self, c):
+        return self.largura * c.altura
+
+      
+c1 = Caixa(3 , 5)
+c2 = Caixa(4, 6)
+c3 = Caixa(20, 4)
+
+print(c1*c1)
+
+'''
+Atividade 3 – Comparação de produtos
+
+Crie uma classe Produto com:
+
+nome
+preço
+
+Sobrecaregue:
+> para comparar preços
+== para verificar se preços são iguais
+
+'''
+
+class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+    def __gt__(self, outro):
+        return self.preco > outro.preco
+    def __eq__(self, outro):
+        return self.preco == outro.preco
+      
+p1 = Produto("teclado", 350)
+p2 = Produto("monitor", 8000)
+
+print(p1 > p2)
+print(p1 == p2)
+
+'''
+Atividade 4 – Carrinho de compras
+
+Crie:
+
+Classe Produto
+Classe Carrinho
+
+Regras:
+
++ adiciona produtos no carrinho
+carrinho guarda lista de produtos
+método para mostrar total
+'''
+class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+
+        
+class Carrinho:
+    def __init__(self):
+        self.produtos = []
+    def __add__(self, produto):
+        return self.produtos.append(produto)
+    def total(self):
+        total = 0
+        for produto in self.produtos:
+            total += self.preco
+        return total
+
+      
+p1 = Produto("teclado", 350)
+p2 = Produto("monitor", 8000)
+p3 = Produto("mouse", 100)
+
+c = Carrinho()
+
+c = c + p1
